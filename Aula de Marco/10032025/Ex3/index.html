@@ -1,0 +1,16 @@
+<script>
+        let number = []
+    let sn = "sim"
+    while (sn == "sim" || sn == "s") {
+        number.push(prompt("Adicione  um número"));
+        sn = prompt("Quer adicionar outro número?");    
+    }number.sort(
+        function(a, b) {
+            return a - b
+        }
+    );
+  console.log(number)
+        
+    
+    
+</script>
