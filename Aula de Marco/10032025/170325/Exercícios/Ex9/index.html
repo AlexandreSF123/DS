@@ -1,0 +1,15 @@
+<script>
+    let jogadores = [];
+    let gols = [];
+    let cont = "sim";
+    while (cont == "sim" || cont == "s") {
+        jogadores.push(prompt("digite o nome do jogador:"))
+        gols.push(parseFloat(prompt("Digite o gols desse jogador: ")))
+        cont = prompt("Deseja adicionar mais um jogador")
+    };
+    jogadores.forEach(function (j,index) {
+        console.log(gols[index] + ':' + j)
+    })
+
+
+</script>

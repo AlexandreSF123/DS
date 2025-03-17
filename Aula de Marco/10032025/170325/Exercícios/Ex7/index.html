@@ -1,0 +1,15 @@
+<script>
+    let palavra = [];
+    
+    let cont = 0;
+    while (cont < 5) {
+        palavra.push(prompt("Digite palavra"));
+        cont++;
+    }
+     let num = 1;
+    let posicao = 0;
+    palavra.forEach(function (palavra, index) {
+        posicao = index + num;
+        console.log(posicao + ":" + palavra)
+     })
+</script>

@@ -1,0 +1,12 @@
+<script>
+        let compra = [];
+    let cont = "sim";
+    while (cont == "sim" || cont == "s") {
+        compra.push(prompt('Digite o nome do produto:') );
+        cont = prompt("Deseja adicionar algo mais?");
+    }
+    console.log("Você pegou esses produtos: ");
+    compra.forEach(function (item) {
+        console.log(item);
+    });
+</script>
