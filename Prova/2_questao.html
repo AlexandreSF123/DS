@@ -1,0 +1,19 @@
+<script>
+     let notas = [];
+    let aluno = [];
+    let cont = 4
+    for (let index = 0; index < cont; index++) {
+        aluno.push(prompt("Digite o nome do aluno" + index + "/" + cont ));
+        notas.push(Number(prompt("Digite a nota dele" + index + "/" + cont)));   
+    }
+    aluno.forEach(function(a, index) {
+        if (notas[index] > 7) {
+            console.log( a + " está Aprovado"); 
+        } 
+        else if (notas[index] >= 6 && notas[index] <= 7 ) {
+            console.log( a + " está em Recuperação"); }
+        else {
+            console.log( a + " está Reprovado");
+        }   
+    });
+</script>

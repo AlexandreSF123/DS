@@ -1,0 +1,16 @@
+<script>
+    let number = [];
+    let cont = Number(prompt("Digite um número"))
+    while (cont > 0) {
+        n = cont;
+       number.push(n);
+       cont = Number(prompt("Digite um número"));
+       
+    }
+    number.forEach(function (num) {
+        if (num%2 == 0) {
+            console.log(num);
+        }
+    }    
+    );   
+</script>
