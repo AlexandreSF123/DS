@@ -1,0 +1,29 @@
+<script>
+    let lampada = 'Apagada';
+
+    addInterruptor();
+
+    function addInterruptor(lampada) {
+        if (lampada == 'Apagada') {
+            console.log('Acendeu');
+            lampada = 'Acesa';
+        }
+        else if(lampada != 'Apagada') {
+            console.log('Ela não acendeu');
+            lampada = 'Apagada';
+        }
+        else {
+
+            console.log('Ela está Acesa já');
+        }
+    }
+
+    //prof:
+     
+    verificarOndeestou();
+    pressionarInteruptor();
+    verificarSelampadaacendeu();
+
+
+
+</script>

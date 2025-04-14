@@ -1,0 +1,56 @@
+<script>
+    let liquidificador = [];
+
+    addIgredient('1 Xícara de Farinha');
+    addIgredient('Ovo');
+    addIgredient('Ovo');
+    addIgredient('Ovo');
+    addIgredient('1 Xícara e meia de Açúcar');
+    addIgredient('1 Colher de óleo');
+    addIgredient('1 xícara de leite');
+    addIgredient('1 Colher de Fermento');
+    addIgredient('Chocalate a gosto');
+    
+    misturarIngredientes();
+
+    addAssadeira();
+
+    addForno();
+
+    aguardar40min();
+
+    retirarBolo();
+
+    esperarEsfriar();
+
+    Deliciar();
+
+    function addIgredient(ingrediente) {
+        liquidificador.push(ingrediente);
+        console.log('Ação executada ' + ingrediente)
+    }
+    function misturarIngredientes() {
+        console.log('Os ingredientes foram misturados com sucesso!');
+    }
+    function addAssadeira() {
+        console.log('Ingredientes adicionados a assadeira com sucesso!');
+    }
+    function addForno() {
+        console.log('Assadeira levada ao forno com sucesso');
+        
+    }
+    function aguardar40min() {
+        console.log('o bolo está assando');
+    }
+    function retirarBolo() {
+        console.log('Bolo retirado com sucesso');
+    }
+    function esperarEsfriar() {
+      console.log('O bolo está esfriando');  
+    }
+    function Deliciar() {
+        console.log('Está uma merda, parabéns');
+        console.log(liquidificador);
+    }
+
+</script>
