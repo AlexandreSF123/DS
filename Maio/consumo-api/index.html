@@ -45,6 +45,36 @@
 
                 let capital = document.createElement('div');
                 capital.innerText = country.capital;
+                //maps
+                let map = document.createElement('a');
+                map.setAttribute('href', country.maps.googleMaps);
+                map.innerText =  'map';
+                //continents
+                let continents = document.createElement('div');
+                continents.innerText = country.continents;
+                //region
+                let region = document.createElement('div');
+                region.innerText = country.region;
+                //subregion
+                let subregion = document.createElement('div');
+                subregion.innerText = country.subregion;
+                //borders
+                let borders = document.createElement('h6');
+                borders.innerText = country.borders;
+                borders.style.wordBreak = "break-all";
+                //independent
+                let independent = document.createElement('div');
+                independent.innerText = country.independent;
+                //coatOfArms
+                let coatOfarms = document.createElement('img');
+                coatOfarms.setAttribute('src', country.coatOfArms.svg);
+                coatOfarms.style.width = '100%';
+                coatOfarms.style.borderRadius = '8px';
+                // timezones
+                let timezones = document.createElement('div');
+                timezones.innerText = country.timezones;
+                timezones.style.wordBreak = "break-all"
+                
 
                 let col = document.createElement('div');
                 col.classList.add("col-4");
@@ -52,6 +82,14 @@
                 col.appendChild(title);
                 col.appendChild(subtitle);
                 col.appendChild(capital);
+                col.appendChild(continents);
+                col.appendChild(region);
+                col.appendChild(subregion);
+                col.appendChild(borders);
+                col.appendChild(independent);
+                col.appendChild(coatOfarms);
+                col.appendChild(timezones);
+                col.appendChild(map);
                 coutries_list.appendChild(col);
                 
             });
@@ -60,7 +98,7 @@
             console.log(erro);
         })
         .finally(() => {
-            console.log('Requisição Finalizada')
+            console.log('Requisição Finalizada');
         })
     }
 </script>
