@@ -45,6 +45,15 @@
 
                 let capital = document.createElement('div');
                 capital.innerText = country.capital;
+                //lingua
+                let languages = document.createElement('div');
+                languages.innerText = Object.keys(country.languages);
+                //latlng
+                let latlng = document.createElement('div');
+                latlng.innerText = country.latlng;
+                //população
+                let population = document.createElement('div');
+                population.innerText = country.population;
                 //maps
                 let map = document.createElement('a');
                 map.setAttribute('href', country.maps.googleMaps);
@@ -52,6 +61,9 @@
                 //continents
                 let continents = document.createElement('div');
                 continents.innerText = country.continents;
+               // moeda
+                let curriences = document.createElement('div');
+               curriences.innerText = Object.keys(country.currencies);
                 //region
                 let region = document.createElement('div');
                 region.innerText = country.region;
@@ -82,7 +94,11 @@
                 col.appendChild(title);
                 col.appendChild(subtitle);
                 col.appendChild(capital);
+                col.appendChild(languages);
+                col.appendChild(latlng);
+                col.appendChild(population);
                 col.appendChild(continents);
+                col.appendChild(curriences);
                 col.appendChild(region);
                 col.appendChild(subregion);
                 col.appendChild(borders);
