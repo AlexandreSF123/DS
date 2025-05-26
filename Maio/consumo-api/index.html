@@ -20,15 +20,6 @@
 
         </div>
     </div>
-    <iframe 
-    src="https://www.google.com/maps?q=${country.latlng}.88&hl=pt-BR&z=6&output=embed" 
-    width="600" 
-    height="450" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
 <script>
     function searchCountry() {
         let coutries_list = document.querySelector('#coutries_list')
@@ -68,7 +59,7 @@
                 map.innerText =  'map';
                 //mapa
                 let mapa = document.createElement('iframe');
-                mapa.setAttribute('src', `https://www.google.com/maps?q=${country.latlgn}.88&hl=pt-BR&z=6&output=embed`);
+                mapa.setAttribute('src', `https://www.google.com/maps?q=${country.latlng}.88&hl=pt-BR&z=6&output=embed`);
                 mapa.style.width = '600';
                 mapa.style.height = '450';
 
