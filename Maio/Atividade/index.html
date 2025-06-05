@@ -12,10 +12,10 @@
         <div class="container-fluid">
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
-                    <em class="usa-logo" style="width: 44px; height: 44px">
+                    <em class="usa-logo"> 
                   <a class="navbar-brand" href="https://www.nasa.gov/" style=" width: 44px; height: 44px;">
-                    <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="NASA Logo" width="44" height="44" class="d-inline-block align-text-top">
-                    Test NASA
+                   <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="NASA Logo" width="44" height="44" class="d-inline-block align-text-top">
+                   sdf
                   </a>
                 </em>
                 </div>
@@ -54,24 +54,78 @@
         </div>
       </nav>
 
+      <section>
+        <div class="container-fluid d-flex justify-content-center" id="text" style="padding: 20px;">
+          <div class="row">
+            <div class="col-12">
+              <h1>Veja as Fotos do <strong>Dia</strong></h1>
+              <h6>Veja logo abaixo</h6>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid d-flex justify-content-center" id="imagemDia">
+          
+        </div>
+      </section>
+
+      <section>
+        <div class="container-fluid d-flex justify-content-center" id="Marte" style="padding: 30px;">
+          <div class="row">
+            <div class="col-12">
+              <h1>Foto diária de <strong>Marte</strong></h1>
+              <h6>Veja as informações da foto logo abaixo</h6>
+            </div>
+          </div>
+        </div>
+
+      </section>
 
 
+<script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous">
-   function search() {
-        let input_search = document.querySelector('#input-search');
-
-
-        fetch(`https://api.nasa.gov/planetary/apod?api_key=${input_search}`)
-        .then(resp => resp.json())
-        .then(resp => {
-            resp.forEach( => {
-                console.log();
-
-            });
-        })}
-
+      let imagem_do_dia = document.querySelector('#imagemDia');
+    
+      fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe`)
+      .then(resp=> resp.json())
+      .then(resp =>{
+  
+          let col = document.createElement('div');
+          col.style.display = 'flex';
+          col.style.alignItems = 'center';
+          col.style.padding = '20px';
+          col.classList.add("col-12")
+  
+          let img = document.createElement('img');
+          img.setAttribute('src',resp.url);
+          img.style.width = '50%';
+          img.style.padding = '20px';
+          
+          let colText = document.createElement('div');
+          colText.classList.add("col-6");
+          
+          let title = document.createElement('h1');
+          title.innerText = resp.title;
+          
+          let ex = document.createElement('h4');
+          ex.innerText = resp.explanation;
+          
+          let date = document.createElement('h4');
+          date.innerText = resp.date;
+          
+          col.appendChild(img);
+          col.appendChild(colText);
+          colText.appendChild(date);
+          colText.appendChild(title);
+          colText.appendChild(ex);
+          imagem_do_dia.appendChild(col);
+        })
+        
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally( () => {
+        console.log('Requisição Finalizada!');
+      })
     </script>
 </body>
 </html>
