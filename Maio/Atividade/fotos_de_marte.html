@@ -20,7 +20,6 @@
               </a>
             </em>
             </div>
-          </nav>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,6 +38,7 @@
       </div>
     </div>
   </nav>
+  
   <section>
     <div class="container-fluid d-flex justify-content-center" id="Marte" style="padding: 30px;">
       <div class="row">
@@ -50,39 +50,43 @@
     </div>
     <section>
       <div class="container">
-        <div class="d-flex flex-wrap" id="Marte">
+        <div class="d-flex flex-wrap" id="marte">
   
         </div>
     
       </div>
       <script>     
-       let imagem_de_marte = document.querySelector('#Marte');
+       let imagem_de_marte = document.querySelector('#marte');
   
       fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe')
-      .then(resp.json())
+      .then(resp => resp.json())
       .then(resp =>{
-        let imgs  = resp.photos;
-        for (let i = 0; i < 80 && i < photos.length; i++) {
-          let style = document.createElement('img');
-          style.setAttribute('src', photo[i].img_src);
-                    style.style.width = '300px';
-                    style.style.padding = '10px';
-                    style.classList.add('img-fluid');
+        let photo  = resp.photos;
+        console.log(resp);
+        photo.forEach(element => {
+           let style = document.createElement('img');
+                    style.setAttribute('src', photo.img_src);
+                    style.style.width = '100%';
+            
+
                     let texto = document.createElement('h6');
-                    texto.innerHTML = photo[i].earth_date;
+                    texto.innerHTML = photo.earth_date;
 
                     let col = document.createElement('div');
+                    col.classList.add('col-4')
 
-                    col.appendChild(img);
+                    col.appendChild(style);
                     col.appendChild(texto);
+                    imagem_de_marte.appendChild(col);
 
-                    image.appendChild(col);
-
+        });
+         
+         
 
           
-        }
-          
-      })
+        
+      }   
+      )
       
       .catch(erro => {
         console.log(erro);
