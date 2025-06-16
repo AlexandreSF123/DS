@@ -16,7 +16,7 @@
                 <em class="usa-logo"> 
               <a class="navbar-brand" href="https://www.nasa.gov/" style=" width: 44px; height: 44px;">
                <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="NASA Logo" width="44" height="44" class="d-inline-block align-text-top">
-               sdf
+               
               </a>
             </em>
             </div>
@@ -38,5 +38,55 @@
       </div>
     </div>
   </nav>
+  <div class="d-flex justify-content-center"><H1><strong>Seja Bem-Vindo na NASA Test</strong></H1></div>
+  <section>
+
+   <div>
+    <h2></h2>
+  </div>
+    <div class=" d-flex justify-content-center" id="imagemDia">
+          
+    </div>
+  </section>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+crossorigin="anonymous"></script>
 </html>
+<script>
+  //https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025-05-26&api_key=
+ 
+let imagem_do_dia = document.querySelector('#imagemDia');
+      
+fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe`)
+.then(resp=> resp.json())
+.then(resp =>{
+
+    let col = document.createElement('div');
+    col.style.padding = '20px';
+    
+
+    let img = document.createElement('img');
+    img.setAttribute('src',resp.url);
+    img.style.width = '100%';
+    img.style.padding = '20px';
+    
+    
+    let colText = document.createElement('div');
+    colText.classList.add("col-12");
+    
+    let title = document.createElement('h1');
+    title.innerText = resp.title;
+
+    colText.appendChild(title);
+    col.appendChild(img);
+    imagem_do_dia.appendChild(col);
+  })
+  
+.catch(erro => {
+  console.log(erro);
+})
+.finally( () => {
+  console.log('Requisição Finalizada!');
+})
+</script>

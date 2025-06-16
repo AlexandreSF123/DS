@@ -13,13 +13,10 @@
     <div class="container-fluid">
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <em class="usa-logo"> 
               <a class="navbar-brand" href="https://www.nasa.gov/" style=" width: 44px; height: 44px;">
                <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="NASA Logo" width="44" height="44" class="d-inline-block align-text-top">
                sdf
               </a>
-            </em>
-            </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,6 +32,7 @@
             <a class="nav-link" href="fotos_de_marte.html">Disabled</a>
           </li>
         </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -43,7 +41,7 @@
     <div class="container-fluid d-flex justify-content-center" id="Marte" style="padding: 30px;">
       <div class="row">
         <div class="col-12">
-          <h1>Foto diária de <strong>Marte</strong></h1>
+          <h1>Foto tiradas de <strong>Marte</strong></h1>
           <h6>Veja as informações da foto logo abaixo</h6>
         </div>
       </div>
@@ -64,9 +62,10 @@
         let photo  = resp.photos;
         console.log(resp);
         photo.forEach(element => {
-           let style = document.createElement('img');
-                    style.setAttribute('src', photo.img_src);
-                    style.style.width = '100%';
+           let img = document.createElement('img');
+                    img.setAttribute('src', photo.img_src);
+                    img.style.width = '20%';
+                    img.style.padding = '10px';
             
 
                     let texto = document.createElement('h6');
@@ -75,7 +74,7 @@
                     let col = document.createElement('div');
                     col.classList.add('col-4')
 
-                    col.appendChild(style);
+                    col.appendChild(img);
                     col.appendChild(texto);
                     imagem_de_marte.appendChild(col);
 
