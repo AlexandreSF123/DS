@@ -9,38 +9,32 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-        <div class="container-fluid">
-            <nav class="navbar bg-dark bg-body-tertiary "  data-bs-theme="dark">
-                <div class="container-fluid">
-                    <em class="usa-logo"> 
-                  <a class="navbar-brand" href="https://www.nasa.gov/" style=" width: 44px; height: 44px;">
-                   <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="NASA Logo" width="44" height="44" class="d-inline-block align-text-top">
-                   sdf
-                  </a>
-                </em>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="foto_do_dia.html">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="fotos_de_marte.html">Disabled</a>
-              </li>
-              <li class="nav-item">
-                <a href="nav-link" href="Obj_terra.html">A</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        </div>
-      </nav>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+                <em class="usa-logo"> 
+              <a class="navbar-brand" href="https://www.nasa.gov/" style=" width: 44px; height: 44px;">
+               <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="NASA Logo" width="44" height="44" class="d-inline-block align-text-top">
+               Nasa Test
+              </a>
+            </em>      
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="foto_do_dia.html">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="fotos_de_marte.html">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 
     <section>
@@ -52,7 +46,7 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid d-flex justify-content-center" id="imagemDia">
+        <div class="container-fluid d-flex justify-content-center" id="imagemDia" style="display: flex; align-items: center;">
           
         </div>
       </section>
@@ -66,12 +60,19 @@
     
             let col = document.createElement('div');
             col.style.padding = '20px';
+            col.style.width = '80%';
+
             
     
             let img = document.createElement('img');
             img.setAttribute('src',resp.url);
             img.style.width = '100%';
-            img.style.padding = '10px';
+            img.style.maxWidth = '700px';
+            img.style.minWidth = '100px'
+            img.style.height = 'auto';
+            img.style.margin = 'auto';
+            img.style.float = 'right';
+            img.style.border = '2px solid #0FC2C0'
             
             
             let colText = document.createElement('div');
@@ -79,18 +80,25 @@
             
             let title = document.createElement('h1');
             title.innerText = resp.title;
+            title.style.color = '#984563'
             
             let ex = document.createElement('h4');
+            ex.style.fontSize = '1.3rem';
+            ex.style.lineHeight = '1.6';
+            ex.style.color = '#3c1a7d';
+            ex.style.marginRight = '30px';
             ex.innerText = resp.explanation;
+            
             
             let date = document.createElement('h4');
             date.innerText = resp.date;
-
+            col.appendChild(img);
             colText.appendChild(date);
             colText.appendChild(title);
-            col.appendChild(img);
-            col.appendChild(colText);
             colText.appendChild(ex);
+            col.appendChild(colText);
+            
+            
             imagem_do_dia.appendChild(col);
           })
           

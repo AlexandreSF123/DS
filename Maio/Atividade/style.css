@@ -1,0 +1,18 @@
+body {
+  background-image: url('https://wallup.net/wp-content/uploads/2016/01/297996-space-Earth.jpg') ;
+  background-size: cover;
+      background-repeat: no-repeat;
+    background-position: center;
+}
+p{
+    color: white
+}
+h1{
+    color: white;
+}
+h4{
+    color: white;
+}
+h6{
+    color: rgb(25, 181, 228)
+}

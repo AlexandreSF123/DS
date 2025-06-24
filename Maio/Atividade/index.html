@@ -9,18 +9,15 @@
   <title>Document</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
                 <em class="usa-logo"> 
               <a class="navbar-brand" href="https://www.nasa.gov/" style=" width: 44px; height: 44px;">
                <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="NASA Logo" width="44" height="44" class="d-inline-block align-text-top">
-               
+               Nasa Test
               </a>
-            </em>
-            </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            </em>      
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -65,6 +62,8 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC
     let col = document.createElement('div');
     col.style.padding = '20px';
     
+  let title = document.createElement('h1');
+    title.innerText = resp.title;
 
     let img = document.createElement('img');
     img.setAttribute('src',resp.url);
@@ -75,8 +74,7 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC
     let colText = document.createElement('div');
     colText.classList.add("col-12");
     
-    let title = document.createElement('h1');
-    title.innerText = resp.title;
+  
 
     colText.appendChild(title);
     col.appendChild(img);
