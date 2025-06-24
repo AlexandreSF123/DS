@@ -6,6 +6,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  <style>
+  h2{
+    color: aqua;
+  }
+  </style>
   <title>Document</title>
 </head>
 <body>
@@ -38,12 +43,14 @@
   <div class="d-flex justify-content-center"><H1><strong>Seja Bem-Vindo na NASA Test</strong></H1></div>
   <section>
 
-   <div>
-    <h2></h2>
-  </div>
+  
+    <h2>Veja as informaçôes do dia</h2>
+ 
     <div class=" d-flex justify-content-center" id="imagemDia">
           
     </div>
+    <h2>Observe Fotos tiradas de marte em alta definição</h2>
+    <div class="d-flex justify-content-center" id="imagemMarte"></div>
   </section>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -63,20 +70,27 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC
     col.style.padding = '20px';
     
   let title = document.createElement('h1');
+  title.style.fontSize = '1.5 rem';
     title.innerText = resp.title;
+
 
     let img = document.createElement('img');
     img.setAttribute('src',resp.url);
-    img.style.width = '100%';
-    img.style.padding = '20px';
-    
+            img.style.width = '100%';
+            img.style.maxWidth = '700px';
+            img.style.minWidth = '100px'
+            img.style.height = 'auto';
+            img.style.margin = 'auto';
+
+                let date = document.createElement('h4');
+            date.innerText = resp.date;
     
     let colText = document.createElement('div');
     colText.classList.add("col-12");
     
   
-
-    colText.appendChild(title);
+    col.appendChild(date)
+    col.appendChild(title);
     col.appendChild(img);
     imagem_do_dia.appendChild(col);
   })
@@ -86,5 +100,38 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC
 })
 .finally( () => {
   console.log('Requisição Finalizada!');
+});
+let image = document.querySelector("#imagemMarte")
+fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe')
+.then(resp => resp.json())
+.then (resp => {
+        let photo = resp.photos;
+        for (let i = 0; i < 4 && i < photo.length; i++) {
+
+          let img = document.createElement('img');
+          img.setAttribute('src', photo[i].img_src);
+          img.style.width = '300px';
+          img.style.padding = '10px';
+          img.classList.add('img-fluid');
+
+          let texto = document.createElement('h6');
+          texto.innerHTML = `data da foto: ${photo[i].earth_date}`;
+          texto.style.color = 'white';
+          texto.style.fontSize = '1 rem'
+
+          let col = document.createElement('div');
+
+          col.appendChild(img);
+          col.appendChild(texto);
+
+          image.appendChild(col);
+
+        }
 })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        console.log('Requisição Finalizada');
+      })
 </script>
