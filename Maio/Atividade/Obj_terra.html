@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
     <title>Objetos Proximos da Terra</title>
 </head>
 <body>
- <nav class="navbar navbar-expand-lg bg-body-tertiary" dara-bs-theme="dark" >
+   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
                 <em class="usa-logo"> 
               <a class="navbar-brand" href="https://www.nasa.gov/" style=" width: 44px; height: 44px;">
@@ -28,27 +31,78 @@
           <li class="nav-item">
             <a class="nav-link" href="fotos_de_marte.html">Disabled</a>
           </li>
+          <li class="nav-item">
+            <a  class="nav-link" href="Obj_terra.html">Objetos Proximos da Terra</a>
+          </li>
         </ul>
       </div>
     </div>
-  </nav>
+    </nav>
+
       <section>
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="row">
-                <div class="col-12"><H1><Strong>Observe As informações dos Objetos perto da Terra</Strong></H1></div>
+                  <div class="container-fluid d-flex justify-content-center" id="text" style="padding: 20px;">
+          <div class="row">
+            <div class="col-12">
+              <h1>Veja as Fotos do <strong>Dia</strong></h1>
+              <h6>Veja logo abaixo</h6>
             </div>
+          </div>
         </div>
-        <div class="container-fluid d-flex justify-content-center" id="OBJ"></div>
+            <div class="container">
+              <div class="d-flex flex-wrap" id="OBJ"></div>
+
+            </div>
       </section>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+crossorigin="anonymous"></script>
 </html>
 <script>
     let Objeto = document.querySelector('#OBJ');
     fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025-05-26&api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe')
 .then(resp => resp.json())
 .then(resp => {
-   let col = document.createElement('div');
-   col.style.padding = '10px';
+    let object = resp.near_earth_objects;
+                Object.keys(object).forEach(date => {
+                    console.log("Data:", date);
+                    console.log(object[date]);
+
+                    object[date].forEach(asteroid => {
+
+
+                        let col = document.createElement('div');
+                        col.classList.add("col-12")
+                        col.style.border = "1px solid #0FC2C0";
+                        col.style.padding = '20px';
+                        col.style.margin = '10px';
+
+                        let nome = document.createElement('h2');
+                        nome.innerText = `Nome: ${asteroid.name}`;
+                        nome.style.color = 'white';
+                        let id = document.createElement('h5');
+                        id.innerText = "id: " + asteroid.id;
+                        id.style.color = 'white';
+
+                        let closeData = asteroid.close_approach_data[0].close_approach_date_full;
+                        let data = document.createElement('h3');
+                        data.style.color = 'white';
+                        data.innerText = `Data próxima: ${closeData}`;
+
+                        let distance = asteroid.close_approach_data[0].miss_distance.kilometers;
+                        let Km = document.createElement('h4');
+                        Km.innerText = ` Distância: ${distance} km`;
+                        Km.style.color = 'white';
+
+                        
+
+                        col.appendChild(nome);
+                        col.appendChild(data);
+                        col.appendChild(Km);
+                        col.appendChild(id);
+                        OBJ.appendChild(col);
+                    });
+                });
 
 
 

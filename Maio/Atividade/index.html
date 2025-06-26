@@ -36,6 +36,9 @@
           <li class="nav-item">
             <a class="nav-link" href="fotos_de_marte.html">Disabled</a>
           </li>
+          <li class="nav-item">
+            <a  class="nav-link" href="Obj_terra.html">Objetos Proximos da Terra</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -51,6 +54,8 @@
     </div>
     <h2>Observe Fotos tiradas de marte em alta definição</h2>
     <div class="d-flex justify-content-center" id="imagemMarte"></div>
+    <a href="fotos_de_marte.html">para ver mais fotos clique aqui</a>
+
   </section>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -69,8 +74,12 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC
     let col = document.createElement('div');
     col.style.padding = '20px';
     
-  let title = document.createElement('h1');
-  title.style.fontSize = '1.5 rem';
+  let title = document.createElement('a');
+  title.setAttribute('href', "foto_do_dia.html");
+  title.style.fontSize = '2 rem';
+  title.style.fontWeight = 'bold';
+  title.style.color = 'white';
+  title.style.textDecoration = 'none';
     title.innerText = resp.title;
 
 
@@ -88,9 +97,9 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC
     let colText = document.createElement('div');
     colText.classList.add("col-12");
     
-  
-    col.appendChild(date)
-    col.appendChild(title);
+     col.appendChild(title);
+    col.appendChild(date);
+   
     col.appendChild(img);
     imagem_do_dia.appendChild(col);
   })
