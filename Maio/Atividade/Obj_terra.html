@@ -93,12 +93,17 @@ crossorigin="anonymous"></script>
                         let Km = document.createElement('h4');
                         Km.innerText = ` Distância: ${distance} km`;
                         Km.style.color = 'white';
+                        let potencial = asteroid.is_potentially_hazardous_asteroid;
+                        let podeser = document.createElement('h5');
+                        podeser.style.color ="white";
+                        podeser.innerText = `Potencial de ser um asteroide perigoso: ${potencial}`;
 
                         
 
                         col.appendChild(nome);
                         col.appendChild(data);
                         col.appendChild(Km);
+                        col.appendChild(podeser);
                         col.appendChild(id);
                         OBJ.appendChild(col);
                     });
