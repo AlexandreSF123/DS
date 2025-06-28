@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="style2.css">
+    <title>Document</title>
+ </head>
+ <body>
+      <style>
+    body{
+      background-color: black;
+    }
+  </style>
+   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+                <em class="usa-logo"> 
+              <a class="navbar-brand" href="https://www.nasa.gov/" style=" width: 44px; height: 44px;">
+               <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="NASA Logo" width="44" height="44" class="d-inline-block align-text-top">
+               Nasa Test
+              </a>
+            </em>      
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Página Inicial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="foto_do_dia.html">Foto do Dia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="fotos_de_marte.html">Fotos de Marte m</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link" href="Obj_terra.html">Objetos Proximos a Terra</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link" href="Foto_da_Terra.html">Fotos da Terra</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section>
+               <div class="container-fluid d-flex justify-content-center" id="text" style="padding: 20px;">
+          <div class="row">
+            <div class="col-12">
+              <h1>Veja as Fotos do <strong>Dia</strong></h1>
+              <h6>Veja logo abaixo</h6>
+            </div>
+          </div>
+        </div>
+             <div class="container">
+        <div class="d-flex flex-wrap" id="foto_terra">
+  
+        </div>
+    </section>
+       
+    <script>
+ let Terra = document.querySelector('#foto_terra');
+ fetch('https://api.nasa.gov/EPIC/api/natural/images?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe')
+        .then(resp => resp.json())
+        .then(resp => {
+                resp.forEach(elemento => {
+                    console.log(elemento);
+
+                    let nome_da_imagem = elemento.image;
+
+                    let data = elemento.date;
+                    // console.log(name_img);
+
+                    let link_img = `https://epic.gsfc.nasa.gov/archive/natural/${data.substr(0, 4)}/${data.substr(5, 2)}/${data.substr(8, 2)}/jpg/${nome_da_imagem}.jpg`
+
+                    let dataExata = document.createElement('h2');
+                dataExata.innerText = `Data:${elemento.date}`;
+                dataExata.style.color ='white'
+
+                    let col = document.createElement('div');
+                    col.classList.add('col-7')
+                    col.style.padding = '20px';
+                    col.style.margin = '10px';
+                    col.style.border = '2px solid aqua'
+
+                    let img = document.createElement('img');
+                    img.setAttribute('src', link_img);
+            img.style.width = '100%';
+            img.style.maxWidth = '700px';
+            img.style.minWidth = '150px'
+            img.style.height = 'auto';
+            img.style.margin = 'auto';
+
+                    let position = document.createElement('p');
+                    position.innerHTML = `<strong>x:</strong> ${elemento.sun_j2000_position.x}<strong> <br> y:</strong> ${elemento.sun_j2000_position.y} <br> <strong>z:</strong> ${elemento.sun_j2000_position.z}`;
+
+                    
+                    let position2 = document.createElement('p');
+                    position2.innerHTML = `<strong>x:</strong> ${elemento.lunar_j2000_position.x}<strong> <br> y:</strong> ${elemento.lunar_j2000_position.y} <br> <strong>z:</strong> ${elemento.lunar_j2000_position.z}`;
+
+                    
+                    let position3 = document.createElement('p');
+                    position3.innerHTML = `<strong>lat:</strong> ${elemento.centroid_coordinates.lat}<strong> <br> lon:</strong> ${elemento.centroid_coordinates.lon}`;
+
+                    let title = document.createElement('h6');
+                    title.innerText = `Posição Solar: `;
+
+                                        let title2 = document.createElement('h6');
+                    title2.innerText = `Posição Lunar: `;
+
+                                        let title3 = document.createElement('h6');
+                    title3.innerText = `Coordenadas: `;
+
+                    Terra.appendChild(col);
+
+                    col.appendChild(img);
+                    col.appendChild(dataExata);
+                    col.appendChild(title);
+                    col.appendChild(position);
+                    col.appendChild(title2);
+                    col.appendChild(position2);
+                    col.appendChild(title3);
+                    col.appendChild(position3);
+                     
+                });
+            })
+    
+        .catch(erro => {
+            console.log(erro);
+            })
+         .finally(() => {
+            console.log('Requisição Finalizada!');
+            });
+    </script>
+ </body>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+crossorigin="anonymous"></script>
+ </html>
