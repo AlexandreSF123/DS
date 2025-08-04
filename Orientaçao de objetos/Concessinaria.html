@@ -1,0 +1,50 @@
+<script>
+    //crie uma classe de para veículo
+    // Adicione 4 propriedades para o veiculo
+    // adicione os setters e getters
+    /* Crie uma função para calcular quantos 
+    anos o  veiculo tem ex: 2025-1999*/
+    //crie 3 instâncias de veiculos
+
+    class veiculo{
+        constructor(Nome, ano, preço, Gasolina){
+            this.Nome = Nome;
+            this.ano = ano;
+            this.preço = preço;
+            this.Gasolina = Gasolina;
+        }
+        set nomeC (Nome){
+            this.Nome = Nome;
+        }
+        get nomeC(){
+            return this.Nome;
+        }
+        set anoF(ano){
+            this.ano = ano;
+        }
+        get anoF (){
+            return this.ano = ano;
+        }
+        set preçoC(preço){
+            this.preço = preço;
+        }
+        get preçoC (){
+            return this.preço = preço;
+        }
+        set gasolinaU(Gasolina){
+            this.Gasolina = Gasolina;
+        }
+        get gasolinaU (){
+            return this.Gasolina = Gasolina;
+        }
+        calcularAno (){
+           return this.ano - 2025;
+        }
+    }
+    let veiculo1 = new veiculo();
+
+    let veiculo2 = new veiculo();
+    
+    let veiculo3 = new veiculo();
+
+</script>

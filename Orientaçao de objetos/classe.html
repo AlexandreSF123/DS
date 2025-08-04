@@ -1,0 +1,76 @@
+<script>
+    class pessoa {
+        constructor(nome, idade, cpf) {
+            this.nome = nome;
+            this.idade = idade;
+            this.cpf = cpf;
+        }
+
+        falar(){
+            console.log('Bela Bosta');
+        }
+        andar(){
+            console.log(`a pessoa andou`);
+        }
+    }
+     let professor = new pessoa('Ricardo', '54', '97262436');
+     console.log(professor.nome);
+     console.log(professor.idade);
+     console.log(professor.cpf);
+     console.log(professor.andar());
+    console.log(professor.falar());
+
+    let aluno = new pessoa('Chupawa Miwara', '15', '98324397');
+    console.log(aluno);
+
+    //criar a classe usuário. O usuário poderá.
+    //ser do tipo administrador ou usuário comum.
+    //o usuário pode estar conectado ou não.
+    //é necessário e-mail e senha para o usuário.
+    //é necessário saber se o usuário está online ou offline.
+
+    class usuario {
+        /*
+        No constructor está ocorenso p ENCAPSULAMENTO, ou seja
+        os dados estão sendo agrupados dentro da classe (cápsula)
+        */
+        constructor(nome, tipo, status, email, senha) {
+            this.nome = nome;
+            this.tipo = tipo;
+            this.status = status;
+            this.email = email;
+            this.senha = senha;
+        }
+        /*Aqui está ocorendo o POLIMORFISMO, ou seja, a classe 
+        pode conter comportamentos diferentes como conectar, 
+        desconectar, etc...
+        */
+        conectar(){
+            console.log('Usuário conectou');
+        }
+        desconectar(){
+            console.log('Usuário desconectou');
+        }
+        recuperarSenha(){
+            console.log('e-mail de recuperação enviado');
+        }
+        trocarSenha(){
+            console.log('senha atualizada');
+        }
+        desativarConta(){
+            console.log('conta desativada');
+        }
+        alternarTipo(){
+            console.log('tipo da conta foi atualizado');
+        }
+ }
+let user1 = new usuario('Rick232', 'usuário', 'offline', 'Rickwhite241@gmil.com', 'a2#9@431');
+console.log(user1.nome);
+console.log(user1.tipo);
+console.log(user1.email);
+console.log(user1.senha);
+console.log(user1.status);
+
+
+   
+</script>

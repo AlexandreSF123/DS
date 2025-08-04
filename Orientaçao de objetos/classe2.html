@@ -1,0 +1,63 @@
+<script>
+    // Usa-se Pacal case
+    class funcinario {
+      constructor(nome, salario_base, horas_trabalhadas) {
+        this.nome = nome;
+        this.salario_base = salario_base; //use sanke_case
+        this.horas_trabalhadas = horas_trabalhadas;
+      } 
+      // set irá trocar o valor da var nome
+      set nomeF(nome) {
+        this.nome = nome;
+      }
+      //comumente chamado setters e getters
+      //irá retornar o nome contido em this.nome
+      get nomeF (){
+        return this.nome;
+      }
+
+      set salarioBase(salario_base){
+        this.salario_base = salario_base;
+      }
+
+      get salarioBase (){
+        return this.salario_base;
+      }
+
+      set horasTrabalhadas (horas_trabalhadas) {
+        this.horas_trabalhadas = horas_trabalhadas;
+      }
+
+      get horasTrabalhadas(){
+        return this.horas_trabalhadas;
+      }
+
+      calcularSalario (){//use camelCase
+        return this.salario_base * this.horas_trabalhadas;
+      }
+    }
+    let programador_backend = new funcinario();
+    programador_backend.nomeF = 'Carlios';
+    programador_backend.salarioBase = 27;
+    programador_backend.horasTrabalhadas = 70
+    console.log(programador_backend.calcularSalario())
+
+    let desenvolvedor_frontend = new funcinario();
+    desenvolvedor_frontend.nomeF = 'Ricardo';
+    desenvolvedor_frontend.salarioBase = 24;
+    desenvolvedor_frontend.horasTrabalhadas = 200;
+    console.log(desenvolvedor_frontend.calcularSalario())
+
+    let gerente = new funcinario();
+    gerente.nomeF = 'Igor';
+    gerente.salarioBase = 56;
+    gerente.horasTrabalhadas = 200;
+    console.log(gerente.calcularSalario())
+
+    let ux_design = new funcinario();
+    ux_design.nomeF = 'Pedro';
+    ux_design.salarioBase = 38;
+    ux_design.horasTrabalhadas = 195;
+    console.log(ux_design.calcularSalario())
+
+</script>

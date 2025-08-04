@@ -1,0 +1,76 @@
+<script>
+    class Veiculo {
+        constructor(marca, modelo) {
+            this.modelo = modelo;
+            this.marca = marca;
+
+        }
+    
+        acelerar() {
+            console.log(`${this.modelo} acelerou!!!`)
+        }
+        frear(){
+            console.log(`${this.modelo} freou!!!`)
+        }
+}
+    let veiculo_1 = new Veiculo('Fiat' , 'Uno 1994');
+    console.log(`Seu veiculo é ${ veiculo_1.modelo}`)
+    veiculo_1.acelerar();
+    veiculo_1.frear();
+    console.log(veiculo_1);
+
+    class Pessoa {
+        constructor(nome, cpf, idade, telefone){
+            this.nome = nome;
+            this.cpf = cpf;
+            this.idade = idade;
+            this.telefone = telefone;
+        }
+        correr() {
+            console.log(`${this.nome} correu`);
+        }
+        pular() {
+            console.log(`${this.nome} pulou`);
+        }
+        falar() {
+            console.log(`${this.nome} falou`);
+        }
+    }
+    let pessoa = new Pessoa('Ordi', '128736286', '42', '123');
+    pessoa.correr();
+    pessoa.pular();
+    pessoa.falar();
+
+    class Animal {
+        constructor(nome, raca, idade, genero){
+            this.nome = nome;
+            this.raca = raca;
+            this.idade = idade;
+            this.genero = genero;
+        }
+        Raca() {
+            console.log(`${this.nome} é uma ${this.raca}`);
+        }
+        Idade() {
+            console.log(`${this.nome} tem ${this.idade} anos`);
+        }
+        Dormiu() {
+            console.log(`${this.nome} é ${this.genero}`);
+        }
+    }
+        class Ovelha extends Animal {
+            constructor(nome, raca, idade, genero, peso){
+                super(nome, raca, idade, genero);
+                this.peso = peso;
+            }
+
+            gritou(){
+                console.log(`${this.nome} berrou`);
+            }
+        }
+    
+    let animal = new Animal('Gui', 'Ovelha marrom', '15', 'macho', '45kg' );
+    animal.Raca();
+    animal.Dormiu();
+    animal.Idade();
+</script>
