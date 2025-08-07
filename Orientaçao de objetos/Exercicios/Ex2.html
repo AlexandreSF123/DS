@@ -1,41 +1,46 @@
 <script>
-    class contaBancaria {
-        constructor(titular, saldo, numeroConta) {
-            this.titular = titular;
-            this.saldo = saldo;
-            this.numeroConta = numeroConta;
-        }
-        set Titular(titular) {
-           this.titular = titular ;
-        }
-        get Titular() {
-         return this.titular; 
-        }
-        set Saldo(saldo) {
-           this.saldo = saldo ;
-        }
-        get Saldo() {
-         return this.saldo; 
-        }
-        set Conta(numeroConta) {
-           this.numeroConta = numeroConta ;
-        }
-        get Conta() {
-         return this.numeroConta; 
-        }
-         depositar(valor){
-            valor = 200
-            saldod = valor - saldo
-            console.log(saldoA)
-         }
-         sacar(valor1) {
-            valor1 = 500
-            saldos = saldo + valor1
-            console.log(saldoA)
-         }
-         exibirSaldo(){
-            console.log 
-         }
-    }
-    let Conta = new contaBancaria('2211', )
+   class contaBancaria {
+      constructor(titular, saldo, numeroConta) {
+         this.titular = titular;
+         this.saldo = saldo;
+         this.numeroConta = numeroConta;
+      }
+      set Titular(titular) {
+         this.titular = titular;
+      }
+      get Titular() {
+         return this.titular;
+      }
+      set Saldo(saldo) {
+         this.saldo = saldo;
+      }
+      get Saldo() {
+         return this.saldo;
+      }
+      set Conta(numeroConta) {
+         this.numeroConta = numeroConta;
+      }
+      get Conta() {
+         return this.numeroConta;
+      }
+      sacar() {
+         let saque = 20
+         let saldo2 = this.saldo + saque
+         console.log(saldo2)
+      }
+      depositar() {
+         let depositar = 200
+         let saldo3 = this.saldo - depositar
+         console.log(saldo3)
+      }
+      exibirSaldo() {
+         let saldo1 = this.saldo
+         let mudanca = saldo1 - Conta.depositar(depositar) + Conta.sacar()
+         console.log(saldo1)
+      }
+   }
+   let Conta = new contaBancaria('2211', 2000, '201')
+   Conta.depositar()
+   Conta.sacar()
+   Conta.exibirSaldo()
 </script>
